@@ -3,17 +3,6 @@ from python.logicapi import *
 
 acciones=logicap()
 
-
-def guardarc():
-   acciones.guardarcliente(nombrec.get(),productoc.get(),cantidadc.get())
-   
-def guardare():
-   acciones.guardarempleado(nombree.get(),areae.get(),puestoe.get())
-   
-def guardarp():
-   acciones.guardarprovedor(nombrep.get(),productop.get(),cantidadp.get())
-
-
 # ventanas base de datos
 
 ventana = Tk()
@@ -25,8 +14,9 @@ note.pack()
 
 
 #registro clientes
-    
-    
+def guardarc():
+   acciones.guardarcliente(nombrec.get(),productoc.get(),cantidadc.get())
+   
 clientes = Frame(note,width=400,height=400)
 clientes.pack(expand=True,fill='both')
 note.add(clientes,text="clientes")
@@ -59,8 +49,8 @@ boton.place(x=150, y=140)
 
 
 #registrar empleados 
-
-    
+def guardare():
+   acciones.guardarempleado(nombree.get(),areae.get(),puestoe.get())
 empleados = Frame(note,width=400,height=400)
 empleados.pack(expand=True,fill='both')
 note.add(empleados,text="empleados")
@@ -89,7 +79,8 @@ boton.place(x=150, y=140)
 
 
 #provedores 
-
+def guardarp():
+   acciones.guardarprovedor(nombrep.get(),productop.get(),cantidadp.get())
 
 provedores= Frame(note,width=400,height=280)
 provedores.pack(expand=True,fill='both')
@@ -116,9 +107,6 @@ cantidad2.place(x=110, y=100)
 
 boton=Button(provedores,text="registrar",command=guardarp)
 boton.place(x=150, y=140)
-
-
-
 
  
 ventana.mainloop()

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Editar Solicitud de Compra </h1>
+    <br>
+    <br>
+    <br>
+    <form action="/actualizarSolicitud/{{solicitud.0}}" method="POST">
+
+        <input type="number" name ="materialId" value="{{solicitud.1}}">
+        <input type="number" name="cantidad" value="{{solicitud.2}}">
+        <input type="number" name="solicitanteId"  value="{{solicitud.3}}">
+        <input type="text" name="estado"  value="{{solicitud.4}}">
+        <input type="text" name="estado"  value="{{solicitud.4}}">
+        <input type="date" name="fecha"  value="{{solicitud.4}}">
+        
+        <button type="submit" >Actualizar</button>
+    
+    
+    </form>   
+</body>
+</html>

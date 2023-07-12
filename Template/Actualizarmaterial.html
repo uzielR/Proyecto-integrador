@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Actualizar material </h1>
+    <br>
+    <br>
+    <br>
+    <form action="/actualizar/{{material.0}}" method="POST">
+
+        <input type="text" name ="txtnombre" value="{{material.1}}">
+        <input type="text" name="txtcategoria" value="{{material.2}}">
+        <input type="number" name="txtcantidad"  value="{{material.3}}">
+        <input type="number" name="txtmax"  value="{{material.3}}">
+        <input type="number" name="txtmin"  value="{{material.4}}">
+        
+        <button type="submit" >Actualizar</button>
+    
+    
+    </form>   
+</body>
+</html>
