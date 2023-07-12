@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['MYSQL_HOST']='localhost'
 app.config['MYSQL_USER']='root'
 app.config['MYSQL_PASSWORD']='12345'
-app.config['MYSQL_DB']='SyopraBD'
+app.config['MYSQL_DB']='syoprabd'
 app.secret_key = 'mysecretkey'
 mysql = MySQL(app)
 
@@ -75,9 +75,6 @@ def actualizar(id):
 
         flash('Se actualizó el registro ' + varNombre)
     return redirect(url_for('index'))
-//////////////////////////
-
-///////////////////
 
 @app.route('/')
 def logicap():
@@ -122,7 +119,7 @@ def editarSolicitud(id_compra):
 
     return render_template('ActualizarCompra.html', compra_de_materiales=consultaID)
 
-//////
+
 @app.route('/')
 def logicap():
     CC= mysql.connection.cursor()
@@ -166,7 +163,7 @@ def editarEntrega(id_entrega):
 
     return render_template('ActualizarEntrega.html', entrega_de_materiales=consultaID)
 
-////////
+
 
 @app.route('/')
 def logicap():
