@@ -60,6 +60,7 @@ def editar(id):
 
     return render_template('editarRegistro.html', materiales=consultaID)
 
+
 @app.route('/actualizar/<int:id>', methods=['POST'])
 def actualizar(id):
     if request.method == 'POST':
