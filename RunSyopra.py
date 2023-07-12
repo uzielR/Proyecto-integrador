@@ -76,120 +76,32 @@ def actualizar(id):
         flash('Se actualizó el registro ' + varNombre)
     return redirect(url_for('index'))
 //////////////////////////
-
-///////////////////
-
-@app.route('/')
-def logicap():
-    CC= mysql.connection.cursor()
-    CC.execute('SELECT * FROM compra_de_materiales')
-    concompra = CC.fetchall() 
-    print (concompra)
-    return render_template('index.html', Listascompra=concompra)
-
-@app.route('/SolicitudCompra', methods=['POST'])
-def guardarCompra():
-    if request.method == 'POST':
-        estadocompra = request.form['estadocompra']
-        materialId = request.form['materialId']
-        cantidad = request.form['cantidad']
-        precio = request.form['precio']
-        proveedorId = request.form['proveedorId']
-        fecha = request.form['fecha']
-        print(estadocompra,materialId,cantidad,precio,proveedorId,fecha)
-
-        # Conectar a la base de datos
-        CS = mysql.connection.cursor()
-        CS.execute('INSERT INTO compra_de_materiales (estadocompra,materialId,cantidad,precio,proveedorId,fecha) VALUES (%s, %s, %s, %s, %s)', (estadocompra,materialId,cantidad,precio,proveedorId,fecha))
-        mysql.connection.commit()
-
-    flash('la compra fue agregado correctamente')
-    return redirect(url_for('index'))
-
-@app.route('/eliminar/<int:id_compra>')
-def eliminarSolicitud(id_compra):
-    cursorId = mysql.connection.cursor()
-    cursorId.execute('DELETE FROM compra_de_materiales WHERE id_compra = %s', (id_compra,))
-    mysql.connection.commit()
-    flash('la solicitud fue agregado correctamente')
-    return redirect(url_for('index'))
-
-@app.route('/editar/<string:id_compra>')
-def editarSolicitud(id_compra):
-    cursorID = mysql.connection.cursor()
-    cursorID.execute('SELECT * FROM compra_de_materiales WHERE id_solicitud = %s', (id_compra,))
-    consultaID = cursorID.fetchone()
-
-    return render_template('ActualizarCompra.html', compra_de_materiales=consultaID)
-
-//////
-@app.route('/')
-def logicap():
-    CC= mysql.connection.cursor()
-    CC.execute('SELECT * FROM entrega_de_materiales WHERE id_entrega = %s', (id_entrega,))
-    conentrega = CC.fetchall() 
-    print (conentrega)
-    return render_template('index.html', Listaentrega=conentrega)
-
-@app.route('/SolicitudEntrega', methods=['POST'])
-def guardarEntrega():
-    if request.method == 'POST':
-        idsolicitud= request.form['id_solicitud']
-        idmaterial = request.form['id_material']
-        cantidad= request.form['cantidad']
-        recibidopor = request.form['recibido_por']
-        entregadopor = request.form['entregado_por']
-        fechaentrega = request.form['fecha_entrega']
-        print()
-
-        # Conectar a la base de datos
-        CS = mysql.connection.cursor()
-        CS.execute('INSERT INTO Entrega_materiales (id_solicitud, id_material, cantidad, recibido_por, fecha_entrega) VALUES (%s, %s, %s, %s, %s)', (idsolicitud, idmaterial, cantidad, recibidopor, fechaentrega))
-        mysql.connection.commit()
-
-    flash('la solicitud fue agregado correctamente')
-    return redirect(url_for('index'))
-
-@app.route('/eliminar/<int:id_entrega>')
-def eliminarEntrega(id_entrega):
-    cursorId = mysql.connection.cursor()
-    cursorId.execute('DELETE FROM Entrega_de_materiales WHERE id_entrega = %s', (id_entrega,))
-    mysql.connection.commit()
-    flash('la solicitud fue eliminada correctamente')
-    return redirect(url_for('index'))
-
-@app.route('/editar/<string:id_entrega>')
-def editarEntrega(id_entrega):
-    cursorID = mysql.connection.cursor()
-    cursorID.execute('SELECT * FROM entrega_de_materiales WHERE id_entrega = %s', (id_entrega,))
-    consultaID = cursorID.fetchone()
-
-    return render_template('ActualizarEntrega.html', entrega_de_materiales=consultaID)
-
+#compra
+/
+#reservaciones 
+/////
+entrega
 ////////
 
 @app.route('/')
-def logicap():
+def Empleados():
     CC= mysql.connection.cursor()
-    CC.execute('SELECT * FROM compra_de_materiales WHERE id_compra = %s', (id_compra,))
-    concompra = CC.fetchall() 
-    print (concompra)
-    return render_template('index.html', Listascompra=concompra)
+    CC.execute('SELECT * FROM Empleados WHERE id_empleado = %s', (id_empleado,))
+    conempleado = CC.fetchall() 
+    print (conempleado)
+    return render_template('index.html', Listaempleado=conempleado)
 
-@app.route('/SolicitudCompra', methods=['POST'])
-def guardarCompra():
+@app.route('/Guardar Empleado', methods=['POST'])
+def guardarEmpleado():
     if request.method == 'POST':
-        materialId = request.form['materialId']
-        cantidad = request.form['cantidad']
-        estadocompra = request.form['estado']
-        precio = request.form['precio']
-        proveedorId = request.form['proveedorId']
-        fecha = request.form['fecha']
-        print(estadocompra,materialId,cantidad,precio,proveedorId,fecha)
+        nombre = request.form['nombre']
+        ap = request.form['ap']
+        am = request.form['am']
+        print(nombre,ap,am)
 
         # Conectar a la base de datos
         CS = mysql.connection.cursor()
-        CS.execute('INSERT INTO Compra_de_Materiales (estadocompra,materialId,cantidad,precio,proveedorId,fecha) VALUES (%s, %s, %s, %s, %s)', (estadocompra,materialId,cantidad,precio,proveedorId,fecha))
+        CS.execute('INSERT INTO Empleados (id_) VALUES (%s, %s)', (nombre,ap,am))
         mysql.connection.commit()
 
     flash('la solicitud fue agregado correctamente')

@@ -103,7 +103,7 @@
   <br>
 
   <section class="form">
-    <h2>Guardar Solicitud de Materiales</h2>
+    <h2>SOLICITUD DE MATERIALES</h2>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul class="messages">
@@ -114,15 +114,15 @@
       {% endif %}
     {% endwith %}
 
-    <label for="materialId">materialId:</label>
-    <input type="text" id="materialId" name="materialId"><br><br>
-    <label for="cantidad">cantidad:</label>
+    <label for="materialId">MaterialId:</label>
+    <input type="number" id="materialId" name="materialId"><br><br>
+    <label for="cantidad">Cantidad:</label>
     <input type="number" id="cantidad" name="cantidad"><br><br>
-    <label for="solicitanteId">solicitanteId:</label>
+    <label for="solicitanteId">SolicitanteId:</label>
     <input type="number" id="solicitanteId" name="solicitanteId"><br><br>
-    <label for="estado">estado:</label>
+    <label for="estado">Estado:</label>
     <input type="text" id="estado" name="estado"><br><br>
-    <label for="fecha">fecha:</label>
+    <label for="fecha">Fecha:</label>
     <input type="date" id="fecha" name="fecha"><br><br>
     <button onclick="guardarsolicitud()">Guardar</button>
   </section>
